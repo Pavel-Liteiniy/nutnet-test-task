@@ -1,0 +1,53 @@
+$font_family_playfair: "Playfair Display", "Times New Roman", serif;
+$font_family_hammersmithone: "Hammersmith One", "Times New Roman", serif;
+$font_family_roboto: "Roboto", "Arial", sans-serif;
+
+$title_font_size: 24px;
+$title_line_height: 32px;
+
+$basic_small_font_size: 16px;
+$basic_small_line_height: 24px;
+
+$basic_font_size: 16px;
+$basic_line_height: 24px;
+$extra_line_height: 26px;
+
+$blue: #00e0d0;
+$dark_blue: #413d4b;
+$dark_grey: #2f2d35;
+$carbon: #333333;
+$medium_white: #fafafa;
+$dark_white: #f9f9f9;
+$light_grey: #f3f3f3;
+$white: #ffffff;
+$black: #000000;
+$grid_1: #b6b6b6;
+$grid_2: #acacac;
+$grid_3: #a1a1a1;
+$grid_4: #8a8a8a;
+$grid_5: #a4a4a4;
+
+$weight_thin: 100;
+$weight_light: 300;
+$weight_regular: 400;
+$weight_bold: 700;
+$weight_black: 900;
+
+$hover_opacity: 0.6;
+$active_opacity: 0.3;
+
+$gradient_background: linear-gradient(0deg, rgba(16, 13, 50, 0.851) 0%, rgba(48, 34, 93, 0.851) 100%);
+
+$border_blue: 1px solid $blue;
+$border_grey: 1px solid $blue;
+
+$breakpoint_mobile: 320px;
+$breakpoint_tablet: 768px;
+$breakpoint_desktop: 1024px;
+
+$retina_dppx: 1.5dppx;
+$retina_dpi: 144dpi;
+
+$basic_padding: 10px;
+
+$content_width_deskop: 940px + $basic_padding * 2;
