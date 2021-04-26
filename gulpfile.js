@@ -1,8 +1,10 @@
 const { src, dest, parallel, series, watch } = require( 'gulp' );
 
 const merge = require( 'merge-stream' );
+const fileinclude = require( 'gulp-file-include' );
 const plumber = require( 'gulp-plumber' );
 const sourcemap = require( 'gulp-sourcemaps' );
+const pug = require( 'gulp-pug' );
 const sass = require( 'gulp-sass' );
 const postcss = require( 'gulp-postcss' );
 const autoprefixer = require( 'autoprefixer' );
@@ -37,8 +39,8 @@ function sync() {
   } );
 
   watch( 'source/sass/**/*.{scss,sass}', series( css ) );
-  watch( 'source/img/**/*', series( getWebp, images, sprite ) );
   watch( 'source/*.html', series( html, refresh ) );
+  watch( 'source/pug/**/*.pug', series( getPug, html, refresh ) );
 };
 
 function refresh( done ) {
@@ -85,8 +87,16 @@ function sprite() {
 
 function html() {
   return src( 'source/*.html' )
-
+    .pipe( fileinclude() )
     .pipe( dest( 'build' ) );
+};
+
+function getPug() {
+  return src( 'source/pug/*.pug' )
+    .pipe( pug( {
+      pretty: true
+    } ) )
+    .pipe( dest( 'source/includes' ) );
 };
 
 function copy() {
@@ -94,7 +104,7 @@ function copy() {
     'source/fonts/**/*.{woff,woff2}',
     'source/img/*.{png,jpg,svg,webp}',
     'source/js/**',
-    'source/*.ico'
+    'source/*.*'
   ], {
     base: 'source'
   } )
@@ -105,6 +115,6 @@ function clean() {
   return del( 'build' );
 };
 
-exports.images = series( getWebp, images, sprite );
-exports.build = series( clean, copy, css, html );
+exports.img = series( getWebp, images, sprite );
+exports.build = series( clean, copy, css, getPug, html );
 exports.start = series( exports.build, sync );
