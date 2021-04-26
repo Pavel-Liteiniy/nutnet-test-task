@@ -1,0 +1,12 @@
+- const team = [ { image: null, name: 'semf ucuk', position: 'ceo & founder' }, { image: null, name: 'dik adalin', position: 'engineering'}, { image: null, name: 'jeng kol', position: 'designer' }, { image: null, name: 'pet romak', position: 'marketing' } ]
+
+ul.team__list
+  each teammate in team
+    li.team__item
+      if teammate.image
+        img(class="team__image" src=teammate.image, width="220" height="229" alt="teammate !{teammate.name}")
+      else
+        .team__plug
+      p.team__label
+        span.team__name= teammate.name
+        span.team__position= teammate.position
