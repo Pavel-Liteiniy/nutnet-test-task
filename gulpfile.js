@@ -16,7 +16,7 @@ const spritesmith = require( 'gulp.spritesmith' );
 const webp = require( 'gulp-webp' );
 const del = require( 'del' );
 
-function css() {
+function scss() {
   return src( 'source/sass/style.scss' )
     .pipe( plumber() )
     .pipe( sourcemap.init() )
@@ -29,6 +29,16 @@ function css() {
     .pipe( server.stream() );
 };
 
+function css() {
+  return src( 'source/css/**/*.css' )
+    .pipe( postcss( [ autoprefixer() ] ) )
+    .pipe( csso() )
+    .pipe( rename( {
+      suffix: ".min"
+    } ) )
+    .pipe( dest( 'build/css' ) );
+};
+
 function sync() {
   server.init( {
     server: 'build/',
@@ -38,7 +48,7 @@ function sync() {
     ui: false
   } );
 
-  watch( 'source/sass/**/*.{scss,sass}', series( css ) );
+  watch( 'source/sass/**/*.{scss,sass}', series( scss ) );
   watch( 'source/*.html', series( html, refresh ) );
   watch( 'source/pug/**/*.pug', series( getPug, html, refresh ) );
 };
@@ -116,5 +126,5 @@ function clean() {
 };
 
 exports.img = series( getWebp, images, sprite );
-exports.build = series( clean, copy, css, getPug, html );
+exports.build = series( clean, copy, scss, css, getPug, html );
 exports.start = series( exports.build, sync );
