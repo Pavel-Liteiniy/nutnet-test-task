@@ -15,6 +15,7 @@ const imagemin = require( 'gulp-imagemin' );
 const spritesmith = require( 'gulp.spritesmith' );
 const webp = require( 'gulp-webp' );
 const del = require( 'del' );
+const deploy = require('gulp-gh-pages');
 
 function scss() {
   return src( 'source/sass/style.scss' )
@@ -125,6 +126,12 @@ function clean() {
   return del( 'build' );
 };
 
+function deployProject() {
+  return src('build/**/*')
+      .pipe(deploy());
+};
+
+exports.deploy = deployProject;
 exports.img = series( getWebp, images, sprite );
 exports.build = series( clean, copy, scss, css, getPug, html );
 exports.start = series( exports.build, sync );
