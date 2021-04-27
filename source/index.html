@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>tajam</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/vendor/normalize.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -41,25 +42,25 @@
         <nav class="header__navigation navigation">
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a class="navigation__link" href="">home</a>
+              <a>home</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">about</a>
+              <a href="javascript:void(0);">about</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">expertise</a>
+              <a href="javascript:void(0);">expertise</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">teams</a>
+              <a href="javascript:void(0);">teams</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">works</a>
+              <a href="javascript:void(0);">works</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">people say</a>
+              <a href="javascript:void(0);">people say</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="">contact</a>
+              <a href="javascript:void(0);">contact</a>
             </li>
           </ul>
         </nav>
@@ -164,7 +165,9 @@
           <p class="team__description">
             Lorem ipsum dolor sit amet proin gravida nibh vel velit
           </p>
+
           @@include('includes/team.html')
+
           <p class="team__prompt">
             Become part of our dream team, let’s join us !
           </p>
@@ -221,7 +224,7 @@
               <a href="javascript:void(0);" aria-label="our work 12"></a>
             </div>
           </div>
-          <a class="portfolio__link link" href="javascript:void(0);"
+          <a class="portfolio__paginator link" href="javascript:void(0);"
             >load more</a
           >
         </div>
@@ -393,7 +396,7 @@
                 id="submit-subjet"
                 placeholder=" "
               />
-              <label class="submit__label" for="submit-subjet">Subjet</label>
+              <label class="submit__label" for="submit-subjet">Subject</label>
             </div>
 
             <div class="submit__group">
