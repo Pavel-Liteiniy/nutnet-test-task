@@ -1,0 +1,29 @@
+.review {
+  background: $gradient_background;
+}
+
+.review__text {
+  font-family: $font_family_playfair;
+  font-size: $basic_font_size;
+  font-weight: $weight_regular;
+  line-height: $extra_line_height;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.review__author {
+  text-transform: uppercase;
+}
+
+.review__name {
+  font-size: $small_font_size;
+  font-weight: $weight_black;
+  line-height: $small_line_height;
+  letter-spacing: 0.5px;
+}
+
+.review__position {
+  font-size: $super_small_font_size;
+  font-weight: $weight_light;
+  line-height: $super_small_line_height;
+}

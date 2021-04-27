@@ -1,0 +1,17 @@
+.link {
+  display: block;
+
+  padding: 7px;
+
+  font-family: $font_family_hammersmithone;
+  font-size: $basic_font_size;
+  font-weight: $weight_regular;
+  line-height: $basic_line_height;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: $blue;
+
+  border: $border_blue;
+}

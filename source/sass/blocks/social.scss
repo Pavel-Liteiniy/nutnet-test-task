@@ -1,0 +1,23 @@
+.social__title {
+  font-size: $extra_font_size;
+  font-weight: $weight_black;
+  line-height: $extra_line_height;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.social__group {
+  font-size: $small_font_size;
+  font-weight: $weight_light;
+  line-height: $extra_line_height;
+  letter-spacing: 0.7px;
+
+  input {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    color: inherit;
+  }
+}

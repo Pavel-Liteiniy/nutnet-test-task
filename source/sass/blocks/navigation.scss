@@ -1,0 +1,22 @@
+.navigation {
+  font-size: $nav_font_size;
+  font-weight: $weight_black;
+  line-height: $nav_line_height;
+  text-transform: uppercase;
+}
+
+.navigation__list {
+  list-style: none;
+}
+
+.navigation__item {
+  a {
+    text-decoration: none;
+
+    color: $white;
+
+    &:not([href]) {
+      color: $blue;
+    }
+  }
+}

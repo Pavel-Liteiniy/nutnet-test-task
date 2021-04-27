@@ -1,0 +1,55 @@
+.team {
+  font-family: $font_family_playfair;
+
+  color: $white;
+  background: $gradient_background;
+}
+
+.team__title {
+  font-size: $title_medium_font_size;
+  font-weight: $weight_black;
+  line-height: $title_line_height;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.team__description {
+  font-size: $small_font_size;
+  font-weight: $weight_regular;
+  line-height: $small_line_height;
+  letter-spacing: 1.1px;
+
+  color: $dark_white;
+}
+
+.team__list {
+  font-family: $font_family_roboto;
+}
+
+.team__label {
+  text-transform: uppercase;
+
+  .team__name {
+    font-size: $small_font_size;
+    font-weight: $weight_black;
+    line-height: $small_line_height;
+    letter-spacing: 0.8px;
+  }
+
+  .team__position {
+    font-size: $super_small_font_size;
+    font-weight: $weight_light;
+    line-height: $super_small_line_height;
+
+    color: $medium_white;
+    opacity: 0.7;
+  }
+}
+
+.team__prompt {
+  font-family: $font_family_roboto;
+  font-size: $small_font_size;
+  font-weight: $weight_light;
+  line-height: $small_line_height;
+  letter-spacing: 0.7px;
+}

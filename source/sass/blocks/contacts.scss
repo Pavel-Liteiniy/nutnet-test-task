@@ -1,0 +1,19 @@
+.contacts__title {
+  font-size: $extra_font_size;
+  font-weight: $weight_black;
+  line-height: $extra_line_height;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.contacts__item {
+  a {
+    font-size: $small_font_size;
+    font-weight: $weight_light;
+    line-height: $extra_line_height;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+
+    color: $white;
+  }
+}

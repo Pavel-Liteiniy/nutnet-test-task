@@ -1,0 +1,32 @@
+.submit__title {
+  font-family: $font_family_playfair;
+  font-size: $title_medium_font_size;
+  font-weight: $weight_black;
+  line-height: $title_line_height;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+
+  color: $dark_blue;
+}
+
+.submit__group {
+  font-size: $small_font_size;
+  font-weight: $weight_light;
+  line-height: $small_line_height;
+  letter-spacing: 0.7px;
+
+  color: $dark_blue;
+
+  input {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+
+    color: inherit;
+  }
+}
+
+.submit__button {
+  background-color: transparent;
+}

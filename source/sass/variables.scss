@@ -2,15 +2,23 @@ $font_family_playfair: "Playfair Display", "Times New Roman", serif;
 $font_family_hammersmithone: "Hammersmith One", "Times New Roman", serif;
 $font_family_roboto: "Roboto", "Arial", sans-serif;
 
-$title_font_size: 24px;
-$title_line_height: 32px;
+$title_font_size: 32px;
+$title_medium_font_size: 22px;
+$title_line_height: 1.1;
 
-$basic_small_font_size: 16px;
-$basic_small_line_height: 24px;
+$nav_font_size: 13px;
+$nav_line_height: 25px;
 
 $basic_font_size: 16px;
+$extra_font_size: 15px;
 $basic_line_height: 24px;
 $extra_line_height: 26px;
+
+$small_font_size: 14px;
+$small_line_height: 22px;
+
+$super_small_font_size: 13px;
+$super_small_line_height: 1.1px;
 
 $blue: #00e0d0;
 $dark_blue: #413d4b;
@@ -39,7 +47,7 @@ $active_opacity: 0.3;
 $gradient_background: linear-gradient(0deg, rgba(16, 13, 50, 0.851) 0%, rgba(48, 34, 93, 0.851) 100%);
 
 $border_blue: 1px solid $blue;
-$border_grey: 1px solid $blue;
+$border_grey: 1px solid $carbon;
 
 $breakpoint_mobile: 320px;
 $breakpoint_tablet: 768px;

@@ -1,0 +1,17 @@
+.banner {
+  color: $white;
+  background: $gradient_background;
+  text-align: center;
+}
+
+.banner__title {
+  font-family: $font_family_playfair;
+  font-size: $title_font_size;
+  font-weight: $weight_black;
+  line-height: $title_line_height;
+  letter-spacing: 0.3px;
+}
+
+.banner__description {
+  letter-spacing: -0.1px;
+}

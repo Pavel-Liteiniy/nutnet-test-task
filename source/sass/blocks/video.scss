@@ -1,0 +1,17 @@
+.video {
+  background: $gradient_background;
+}
+
+.video__link {
+  display: block;
+
+  font-family: $font_family_roboto;
+  font-size: $basic_font_size;
+  font-weight: $weight_black;
+  line-height: $basic_line_height;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: $white;
+}
