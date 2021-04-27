@@ -1,5 +1,3 @@
-@import "variables";
-
 .visually-hidden {
   position: absolute;
 
@@ -33,7 +31,7 @@ main {
   min-width: $breakpoint_mobile;
 }
 
-a,
+a[href],
 button,
 label,
 input,
