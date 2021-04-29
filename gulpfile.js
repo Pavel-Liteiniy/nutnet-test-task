@@ -82,9 +82,10 @@ function sprite() {
     .pipe( spritesmith( {
       retinaSrcFilter: 'source/img/icons/icon-*@2x.png',
       imgName: 'sprite@1x.png',
+      imgPath: '/img/sprite@1x.png',
       retinaImgName: 'sprite@2x.png',
+      retinaImgPath: '/img/sprite@2x.png',
       cssName: 'sprite.scss',
-
     } ) );
 
   const imgStream = spriteData.img
