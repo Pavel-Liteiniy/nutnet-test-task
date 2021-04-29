@@ -1,21 +1,62 @@
 .review {
-  background: $gradient_background;
+  @include for_retina {
+    background-image: $gradient_background,
+      url("../img/background-hills@2x.jpg");
+  }
+
+  text-align: center;
+
+  color: $white;
+  background-image: $gradient_background, url("../img/background-hills@1x.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.review__wrapper {
+  padding-top: 60px;
+  padding-bottom: 65px;
 }
 
 .review__text {
+  padding: 72px 75px 43px;
+  margin: 0;
+
   font-family: $font_family_playfair;
   font-size: $basic_font_size;
   font-weight: $weight_regular;
   line-height: $extra_line_height;
   letter-spacing: 0.5px;
   text-align: center;
+
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "“";
+    top: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 100px;
+    line-height: 22px;
+  }
 }
 
 .review__author {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  margin: 0 0 49px;
+
   text-transform: uppercase;
 }
 
 .review__name {
+  margin-bottom: 5px;
+
   font-size: $small_font_size;
   font-weight: $weight_black;
   line-height: $small_line_height;
@@ -26,4 +67,28 @@
   font-size: $super_small_font_size;
   font-weight: $weight_light;
   line-height: $super_small_line_height;
+}
+
+.review__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.review__item {
+  border-radius: 50%;
+
+  margin: 7px;
+
+  &--selected {
+    margin-left: 19px;
+    margin-right: 19px;
+    transform: scale(1.56);
+  }
 }

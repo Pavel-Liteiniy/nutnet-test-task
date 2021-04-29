@@ -1,17 +1,59 @@
 .banner {
-  color: $white;
-  background: $gradient_background;
+  @include for_retina {
+    background-image: $gradient_background,
+      url("../img/background-forest@2x.jpg");
+  }
+
   text-align: center;
+
+  color: $white;
+  background-image: $gradient_background, url("../img/background-forest@1x.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.banner__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 670px;
+  padding-top: 100px;
+  padding-bottom: 133px;
 }
 
 .banner__title {
+  position: relative;
+
+  padding: 23px;
+  margin: 26px 0;
+
   font-family: $font_family_playfair;
   font-size: $title_font_size;
   font-weight: $weight_black;
   line-height: $title_line_height;
   letter-spacing: 0.3px;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 50px;
+    height: 1px;
+
+    content: "";
+
+    background-color: $blue;
+
+    transform: translateX(-50%);
+  }
 }
 
 .banner__description {
+  padding: 0 75px 46px;
+  margin: 0;
+
   letter-spacing: -0.1px;
 }

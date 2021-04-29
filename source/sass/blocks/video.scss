@@ -1,9 +1,27 @@
 .video {
-  background: $gradient_background;
+  @include for_retina {
+    background-image: $gradient_background, url("../img/background-city@2x.jpg");
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 550px;
+
+  background-image: $gradient_background, url("../img/background-city@1x.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .video__link {
+  position: relative;
+
   display: block;
+
+  margin-top: 135px;
 
   font-family: $font_family_roboto;
   font-size: $basic_font_size;
@@ -14,4 +32,16 @@
   text-transform: uppercase;
 
   color: $white;
+
+  &::before {
+    @include retina-sprite($icon-play-1x-group);
+
+    position: absolute;
+    top: -129px;
+    left: 50%;
+
+    content: "";
+
+    transform: translate(-52%, 0);
+  }
 }

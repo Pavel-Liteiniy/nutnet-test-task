@@ -1,11 +1,33 @@
 .team {
+  @include for_retina {
+    background-image: $gradient_background,
+      url("../img/background-hazy-forest@2x.jpg");
+  }
+
   font-family: $font_family_playfair;
+  text-align: center;
 
   color: $white;
   background: $gradient_background;
+  background-image: $gradient_background,
+    url("../img/background-hazy-forest@1x.jpg");
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.team__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 65px;
+  padding-bottom: 69px;
 }
 
 .team__title {
+  margin: 0 100px 9px;
+
   font-size: $title_medium_font_size;
   font-weight: $weight_black;
   line-height: $title_line_height;
@@ -14,22 +36,81 @@
 }
 
 .team__description {
+  position: relative;
+
+  padding-bottom: 18px;
+  margin: 0 50px 46px;
+
   font-size: $small_font_size;
   font-weight: $weight_regular;
   line-height: $small_line_height;
   letter-spacing: 1.1px;
 
   color: $dark_white;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 50px;
+    height: 2px;
+
+    content: "";
+
+    opacity: 0.2;
+    background-color: $white;
+
+    transform: translateX(-50%);
+  }
 }
 
 .team__list {
+  display: grid;
+  justify-content: center;
+
+  width: 100%;
+  padding: 0;
+  margin: 0 0 46px;
+
   font-family: $font_family_roboto;
+
+  list-style: none;
+
+  column-gap: 20px;
+
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, 220px);
+  row-gap: 20px;
+}
+
+.team__item {
+  // width: 220px;
+  margin-bottom: 20px;
+}
+
+.team__plug {
+  width: 220px;
+  height: 230px;
+
+  background-color: $white;
 }
 
 .team__label {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  padding: 13px 20px 22px;
+  margin: 0;
+
   text-transform: uppercase;
 
+  border: $border_cream;
+
   .team__name {
+    margin-bottom: 5px;
+
     font-size: $small_font_size;
     font-weight: $weight_black;
     line-height: $small_line_height;
@@ -47,6 +128,8 @@
 }
 
 .team__prompt {
+  margin: 0 0 23px;
+
   font-family: $font_family_roboto;
   font-size: $small_font_size;
   font-weight: $weight_light;
