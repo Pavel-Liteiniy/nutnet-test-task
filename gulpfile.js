@@ -15,7 +15,7 @@ const imagemin = require( 'gulp-imagemin' );
 const spritesmith = require( 'gulp.spritesmith' );
 const webp = require( 'gulp-webp' );
 const del = require( 'del' );
-const deploy = require('gulp-gh-pages');
+const deploy = require( 'gulp-gh-pages' );
 
 function scss() {
   return src( 'source/sass/style.scss' )
@@ -82,9 +82,9 @@ function sprite() {
     .pipe( spritesmith( {
       retinaSrcFilter: 'source/img/icons/icon-*@2x.png',
       imgName: 'sprite@1x.png',
-      imgPath: '/img/sprite@1x.png',
+      imgPath: '../img/sprite@1x.png',
       retinaImgName: 'sprite@2x.png',
-      retinaImgPath: '/img/sprite@2x.png',
+      retinaImgPath: '../img/sprite@2x.png',
       cssName: 'sprite.scss',
     } ) );
 
@@ -128,8 +128,8 @@ function clean() {
 };
 
 function deployProject() {
-  return src('build/**/*')
-      .pipe(deploy());
+  return src( './build/**/*' )
+    .pipe( deploy() );
 };
 
 exports.deploy = deployProject;
