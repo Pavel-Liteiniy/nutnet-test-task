@@ -16,6 +16,23 @@ const spritesmith = require( 'gulp.spritesmith' );
 const webp = require( 'gulp-webp' );
 const del = require( 'del' );
 const deploy = require( 'gulp-gh-pages' );
+const concat = require( 'gulp-concat' );
+const uglify = require( 'gulp-uglify' );
+const babel = require( 'gulp-babel' );
+
+function js() {
+  return src( './source/js/**/*.js' )
+    .pipe( sourcemap.init() )
+    .pipe(
+      babel( {
+        presets: [ '@babel/preset-env' ]
+      } )
+    )
+    .pipe( uglify() )
+    .pipe( concat( 'script.min.js' ) )
+    .pipe( sourcemap.write( '.' ) )
+    .pipe( dest( './build/js/' ) );
+}
 
 function scss() {
   return src( 'source/sass/style.scss' )
@@ -50,6 +67,7 @@ function sync() {
   } );
 
   watch( 'source/sass/**/*.{scss,sass}', series( scss ) );
+  watch( 'source/js/**/*.js', series( js ) );
   watch( 'source/*.html', series( html, refresh ) );
   watch( 'source/pug/**/*.pug', series( getPug, html, refresh ) );
 };
@@ -115,7 +133,6 @@ function copy() {
   return src( [
     'source/fonts/**/*.{woff,woff2}',
     'source/img/*.{png,jpg,svg,webp}',
-    'source/js/**',
     'source/*.*'
   ], {
     base: 'source'
@@ -134,5 +151,5 @@ function deployProject() {
 
 exports.deploy = deployProject;
 exports.img = series( getWebp, images, sprite );
-exports.build = series( clean, copy, scss, css, getPug, html );
+exports.build = series( clean, copy, js, scss, css, getPug, html );
 exports.start = series( exports.build, sync );
