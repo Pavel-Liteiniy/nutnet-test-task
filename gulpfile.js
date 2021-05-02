@@ -16,7 +16,6 @@ const spritesmith = require( 'gulp.spritesmith' );
 const webp = require( 'gulp-webp' );
 const del = require( 'del' );
 const deploy = require( 'gulp-gh-pages' );
-const concat = require( 'gulp-concat' );
 const uglify = require( 'gulp-uglify' );
 const babel = require( 'gulp-babel' );
 
@@ -25,11 +24,17 @@ function js() {
     .pipe( sourcemap.init() )
     .pipe(
       babel( {
-        presets: [ '@babel/preset-env' ]
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              modules: false
+            }
+          ]
+        ]
       } )
     )
     .pipe( uglify() )
-    .pipe( concat( 'script.min.js' ) )
     .pipe( sourcemap.write( '.' ) )
     .pipe( dest( './build/js/' ) );
 }
@@ -67,7 +72,7 @@ function sync() {
   } );
 
   watch( 'source/sass/**/*.{scss,sass}', series( scss ) );
-  watch( 'source/js/**/*.js', series( js ) );
+  watch( 'source/js/**/*.js', series( js, refresh ) );
   watch( 'source/*.html', series( html, refresh ) );
   watch( 'source/pug/**/*.pug', series( getPug, html, refresh ) );
 };
