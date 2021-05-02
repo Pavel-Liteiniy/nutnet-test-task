@@ -1,4 +1,6 @@
 .contacts__title {
+  margin: 13px 0 28px;
+
   font-size: $extra_font_size;
   font-weight: $weight_black;
   line-height: $extra_line_height;
@@ -6,8 +8,25 @@
   text-transform: uppercase;
 }
 
+.contacts__list {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
 .contacts__item {
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
   a {
+    position: relative;
+
+    display: block;
+
+    padding-left: 29px;
+
     font-size: $small_font_size;
     font-weight: $weight_light;
     line-height: $extra_line_height;
@@ -15,5 +34,21 @@
     text-decoration: none;
 
     color: $white;
+
+    &::before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+
+      content: "";
+    }
+  }
+
+  &--address a::before {
+    @include retina-sprite($icon-point-1x-group);
+  }
+
+  &--phone a::before {
+    @include retina-sprite($icon-phone-1x-group);
   }
 }
