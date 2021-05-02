@@ -263,7 +263,7 @@
             <span class="review__position">ceo tengkurep</span>
           </p>
           <ul class="review__list">
-            <li class="review__item">
+            <li class="review__item" data-review="review-1">
               <a href="javascript:void(0);" aria-label="feedback on our work">
                 <picture>
                   <source
@@ -285,7 +285,7 @@
                 </picture>
               </a>
             </li>
-            <li class="review__item">
+            <li class="review__item" data-review="review-2">
               <a href="javascript:void(0);" aria-label="feedback on our work">
                 <picture>
                   <source
@@ -307,7 +307,7 @@
                 </picture>
               </a>
             </li>
-            <li class="review__item review__item--selected">
+            <li class="review__item review__item--selected" data-review="review-3">
               <a href="javascript:void(0);" aria-label="feedback on our work">
                 <picture>
                   <source
@@ -329,7 +329,7 @@
                 </picture>
               </a>
             </li>
-            <li class="review__item">
+            <li class="review__item" data-review="review-4">
               <a href="javascript:void(0);" aria-label="feedback on our work">
                 <picture>
                   <source
@@ -351,7 +351,7 @@
                 </picture>
               </a>
             </li>
-            <li class="review__item">
+            <li class="review__item" data-review="review-5">
               <a href="javascript:void(0);" aria-label="feedback on our work">
                 <picture>
                   <source
@@ -413,13 +413,13 @@
 
             <div class="submit__group">
               <input
-                class="submit__input submit__input--subjet"
+                class="submit__input submit__input--subject"
                 type="text"
-                name="subjet"
-                id="submit-subjet"
+                name="subject"
+                id="submit-subject"
                 placeholder=" "
               />
-              <label class="submit__label" for="submit-subjet">Subject</label>
+              <label class="submit__label" for="submit-subject">Subject</label>
             </div>
 
             <div class="submit__group">
@@ -440,7 +440,7 @@
         </div>
       </section>
       <footer class="footer">
-        <div class="footer__wrapper">
+        <div class="footer__wrapper wrapper">
           <div class="footer__group company">
             <picture>
               <source
@@ -466,7 +466,7 @@
           <section class="footer__group contacts">
             <h2 class="contacts__title">our studio</h2>
             <ul class="contacts__list">
-              <li class="contacts__item contacts__item--adress">
+              <li class="contacts__item contacts__item--address">
                 <a href="javascript:void(0);"
                   >Ruko cucruk, Jl. Radio luar dalem jos No.12 - 13, Kalideres -
                   Jakarta Barat 11480 - Indonesia</a
@@ -477,7 +477,7 @@
               </li>
             </ul>
           </section>
-          <section class="footer__group social">
+          <section class="footer__group footer__group--social social">
             <h2 class="social__title">stay in touch</h2>
             <form
               class="social__form"
@@ -498,38 +498,42 @@
                 <label class="social__label" for="social-email"
                   >Subscribe our newsletter</label
                 >
+                <button
+                  class="social__button"
+                  type="submit"
+                  aria-label="subscribe"
+                ></button>
               </div>
-              <button type="submit" aria-label="subscribe"></button>
             </form>
             <ul class="social__list">
-              <li class="social__item">
+              <li class="social__item social__item--facebook">
                 <a
                   href="javascript:void(0);"
                   aria-label="tajam in facebook"
                 ></a>
               </li>
-              <li class="social__item">
+              <li class="social__item social__item--twitter">
                 <a href="javascript:void(0);" aria-label="tajam in twitter"></a>
               </li>
-              <li class="social__item">
+              <li class="social__item social__item--dribbble">
                 <a
                   href="javascript:void(0);"
                   aria-label="tajam in dribbble"
                 ></a>
               </li>
-              <li class="social__item">
+              <li class="social__item social__item--instagram">
                 <a
                   href="javascript:void(0);"
                   aria-label="tajam in instagram"
                 ></a>
               </li>
-              <li class="social__item">
+              <li class="social__item social__item--gplus">
                 <a
                   href="javascript:void(0);"
                   aria-label="tajam in google plus"
                 ></a>
               </li>
-              <li class="social__item">
+              <li class="social__item social__item--youtube">
                 <a href="javascript:void(0);" aria-label="tajam in youtube"></a>
               </li>
             </ul>
@@ -551,6 +555,10 @@
         </div>
       </footer>
     </main>
-    <script src="./js/script.min.js"></script>
+    <script type="module" src="./js/const.js"></script>
+    <script type="module" src="./js/utils.js"></script>
+    <script type="module" src="./js/review.js"></script>
+    <script type="module" src="./js/submit.js"></script>
+    <script type="module" src="./js/subscribe.js"></script>
   </body>
 </html>
