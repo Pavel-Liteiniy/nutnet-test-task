@@ -1,38 +1,13 @@
-'use strict';
-
-const EMAIL_REG_EXP = /^(?:[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+(?:\.[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+)*)@(?:[-a-z\d_]+\.){1,60}[a-z]{2,6}$/;
-const SuccessHTTPStatusRange = {
-  MIN: 200,
-  MAX: 299
-};
-const URL = `https://jsonplaceholder.typicode.com/posts`;
-const SHOW_TIME = 5000;
-
-const ErrorDescription = {
-  DEFAULT: `Data specified incorrectly`,
-  EMAIL: `Use valid email format: pasha96@email.com`,
-  SUBMIT: `An error occurred while sending data. Try submitting again or refresh the page.`
-};
+import { EMAIL_REG_EXP, SuccessHTTPStatusRange, URL, SHOW_TIME, ErrorDescription } from './const.js'
+import { toast, checkValidity } from './utils.js'
 
 const wrapperElement = document.querySelector( `.submit__wrapper` );
 const formElement = wrapperElement.querySelector( `.submit__form` );
 const inputNameElement = formElement.querySelector( `#submit-name` );
 const inputEmailElement = formElement.querySelector( `#submit-email` );
-const inputSubjetElement = formElement.querySelector( `#submit-subjet` );
+const inputSubjetElement = formElement.querySelector( `#submit-subject` );
 const inputMessageElement = formElement.querySelector( `#submit-message` );
 const buttonElement = formElement.querySelector( `.submit__button` );
-
-const toast = ( message ) => {
-  const toastElement = document.createElement( `div` );
-  toastElement.textContent = message;
-  toastElement.classList.add( `toast__item` );
-
-  toastContainer.append( toastElement );
-
-  setTimeout( () => {
-    toastElement.remove();
-  }, SHOW_TIME );
-};
 
 const renderValidationHint = ( targetElement, { isInvalid, description }, position = `afterend` ) => {
   if ( !isInvalid && targetElement.nextElementSibling.classList.contains( `submit__validation-hint` ) ) {
@@ -48,34 +23,6 @@ const renderValidationHint = ( targetElement, { isInvalid, description }, positi
 
   if ( isInvalid && !targetElement.nextElementSibling.classList.contains( `submit__validation-hint` ) ) {
     targetElement.insertAdjacentHTML( position, `<p class="submit__validation-hint">${description}</p>` );
-  }
-};
-
-const checkValidity = ( { value }, regExp, errorDescription = ErrorDescription.DEFAULT, isRequired = true ) => {
-  if ( value.length === 0 && isRequired ) {
-    return {
-      isInvalid: true,
-      description: `Required field`,
-    };
-  }
-
-  if ( value.length === 0 && !isRequired ) {
-    return {
-      isInvalid: false,
-      description: `Valid`,
-    };
-  }
-
-  if ( regExp.test( value ) ) {
-    return {
-      isInvalid: false,
-      description: `Valid`,
-    };
-  } else {
-    return {
-      isInvalid: true,
-      description: errorDescription,
-    };
   }
 };
 
@@ -139,27 +86,27 @@ formElement.addEventListener( `submit`, ( evt ) => {
         'Content-type': `application/json; charset=UTF-8`
       }
     } )
-        .then( ( response ) => {
-          if (
-            response.status < SuccessHTTPStatusRange.MIN ||
-            response.status > SuccessHTTPStatusRange.MAX
-          ) {
-            throw new Error( `${response.status}: ${response.statusText}` );
-          }
+      .then( ( response ) => {
+        if (
+          response.status < SuccessHTTPStatusRange.MIN ||
+          response.status > SuccessHTTPStatusRange.MAX
+        ) {
+          throw new Error( `${response.status}: ${response.statusText}` );
+        }
 
-          wrapperElement.innerHTML = `<p class="submit__success">Thank you! We will certainly write the answer!</p>`;
-        } )
-        .catch( () => {
-          toast( ErrorDescription.SUBMIT );
+        wrapperElement.innerHTML = `<p class="submit__success">Thank you! We will certainly write the answer!</p>`;
+      } )
+      .catch( () => {
+        toast( ErrorDescription.SUBMIT, toastContainer );
 
-          inputNameElement.disabled = false;
-          inputEmailElement.disabled = false;
-          inputSubjetElement.disabled = false;
-          inputMessageElement.disabled = false;
-          buttonElement.disabled = false;
+        inputNameElement.disabled = false;
+        inputEmailElement.disabled = false;
+        inputSubjetElement.disabled = false;
+        inputMessageElement.disabled = false;
+        buttonElement.disabled = false;
 
-          buttonElement.textContent = buttonTextContentPrevious;
-        } );
+        buttonElement.textContent = buttonTextContentPrevious;
+      } );
   }
 
 } );
