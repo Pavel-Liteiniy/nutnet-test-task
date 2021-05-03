@@ -1,4 +1,9 @@
 .submit__wrapper {
+  @include for_mobile {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: start;

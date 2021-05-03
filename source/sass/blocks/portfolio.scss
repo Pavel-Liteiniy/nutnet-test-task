@@ -1,4 +1,8 @@
 .portfolio__wrapper {
+  @include for_mobile {
+    padding-bottom: 50px;
+  }
+
   display: flex;
   flex-direction: column;
 
@@ -19,6 +23,11 @@
 }
 
 .porfolio__header {
+  @include for_mobile {
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,6 +39,10 @@
 }
 
 .portfolio__list {
+  @include for_mobile {
+    margin-bottom: 20px;
+  }
+
   display: grid;
 
   margin-bottom: 71px;

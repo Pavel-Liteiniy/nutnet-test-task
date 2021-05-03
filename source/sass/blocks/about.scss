@@ -7,6 +7,17 @@
     background-image: url("../img/logo-extra@2x.png");
   }
 
+  @include for_mobile {
+    align-items: center;
+
+    padding: 130px 10px 50px;
+
+    text-align: center;
+
+    background-position: 50% 10px;
+    background-size: 115px 112px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

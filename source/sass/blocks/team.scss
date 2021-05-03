@@ -16,6 +16,11 @@
 }
 
 .team__wrapper {
+  @include for_mobile {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +31,10 @@
 }
 
 .team__title {
+  @include for_mobile {
+    margin: 0 50px 10px;
+  }
+
   margin: 0 100px 9px;
 
   font-size: $title_medium_font_size;
@@ -36,6 +45,10 @@
 }
 
 .team__description {
+  @include for_mobile {
+    margin: 0 20px 20px;
+  }
+
   position: relative;
 
   padding-bottom: 18px;
@@ -66,6 +79,10 @@
 }
 
 .team__list {
+  @include for_mobile {
+    margin: 0 0 20px;
+  }
+
   display: grid;
   justify-content: center;
 
@@ -85,7 +102,10 @@
 }
 
 .team__item {
-  // width: 220px;
+  @include for_mobile {
+    margin-bottom: 0;
+  }
+
   margin-bottom: 20px;
 }
 

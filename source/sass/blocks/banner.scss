@@ -13,6 +13,12 @@
 }
 
 .banner__wrapper {
+  @include for_mobile {
+    min-height: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,6 +30,11 @@
 }
 
 .banner__title {
+  @include for_mobile {
+    padding: 10px;
+    margin: 0 0 10px;
+  }
+
   position: relative;
 
   padding: 23px;
@@ -52,6 +63,10 @@
 }
 
 .banner__description {
+  @include for_mobile {
+    padding: 10px;
+  }
+
   padding: 0 75px 46px;
   margin: 0;
 

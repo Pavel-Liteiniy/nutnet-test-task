@@ -3,9 +3,24 @@
   font-weight: $weight_black;
   line-height: $nav_line_height;
   text-transform: uppercase;
+
+  &--js {
+    @include for_mobile {
+      position: relative;
+
+      width: 100%;
+    }
+  }
 }
 
 .navigation__list {
+  @include for_mobile {
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 0;
+  }
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -16,9 +31,36 @@
   margin: 0;
 
   list-style: none;
+
+  transition-duration: 300ms;
+
+  &--js {
+    @include for_mobile {
+      position: absolute;
+      z-index: 10;
+
+      width: 100%;
+
+      background-color: $purple;
+
+      transform: translateX(-100%);
+    }
+  }
+
+  &--show {
+    @include for_mobile {
+      transform: translateX(0);
+    }
+  }
 }
 
 .navigation__item {
+  @include for_mobile {
+    &:not(:last-child) {
+      border-bottom: 1px solid $white;
+    }
+  }
+
   a {
     @include only_desktop {
       &[href]:hover,
@@ -30,6 +72,13 @@
       &[href]:active {
         opacity: $active_opacity;
       }
+    }
+
+    @include for_mobile {
+      padding: 10px;
+      margin-left: 0;
+
+      text-align: center;
     }
 
     display: block;

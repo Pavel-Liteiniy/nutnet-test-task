@@ -1,15 +1,229 @@
+@keyframes cross {
+  50% {
+    background-color: $blue;
+  }
+
+  51% {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes cross-before {
+  50% {
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
+  to {
+    top: 50%;
+
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+@keyframes cross-after {
+  50% {
+    bottom: 50%;
+
+    transform: translateY(50%);
+  }
+
+  to {
+    bottom: 50%;
+
+    transform: translateY(50%) rotate(-45deg);
+  }
+}
+
+@keyframes sandwich {
+  from {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: transparent;
+  }
+
+  51% {
+    background-color: $blue;
+  }
+
+  to {
+    background-color: $blue;
+  }
+}
+
+@keyframes sandwich-before {
+  from {
+    top: 50%;
+
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  50% {
+    top: 50%;
+
+    transform: translateY(-50%) rotate(0);
+  }
+
+  to {
+    bottom: 10px;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes sandwich-after {
+  from {
+    bottom: 50%;
+
+    transform: translateY(50%) rotate(45deg);
+  }
+
+  50% {
+    bottom: 50%;
+
+    transform: translateY(50%) rotate(0);
+  }
+
+  to {
+    bottom: 10px;
+
+    transform: translateY(0);
+  }
+}
+
 .header {
+  @include for_mobile {
+    position: static;
+
+    background-color: $purple;
+  }
+
   position: absolute;
   top: 0;
   left: 0;
+
   width: 100%;
 }
 
 .header__wrapper {
+  @include for_mobile {
+    flex-direction: column;
+
+    padding: 10px 0;
+  }
+
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+
   padding-top: 15px;
+
+  &--js {
+    @include for_mobile {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .header__logo {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.header__button {
+  display: none;
+
+  &--js {
+    @include for_mobile {
+      position: relative;
+
+      display: block;
+
+      width: 50px;
+      height: 45px;
+      padding: 20px 0;
+      margin: 0 10px;
+
+      background-clip: content-box;
+      background-color: $blue;
+
+      border: none;
+
+      transition: 300ms background-color;
+
+      animation-duration: 300ms;
+      animation-fill-mode: forwards;
+
+      &:active {
+        outline: none;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        left: 0;
+
+        width: 50px;
+        height: 5px;
+
+        content: "";
+
+        background: $blue;
+
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+      }
+
+      &::before {
+        top: 10px;
+      }
+
+      &::after {
+        bottom: 10px;
+      }
+    }
+  }
+
+  &--cross {
+    @include for_mobile {
+      animation-name: cross;
+
+      &::before {
+        animation-name: cross-before;
+      }
+
+      &::after {
+        animation-name: cross-after;
+      }
+    }
+  }
+
+  &--sandwich {
+    @include for_mobile {
+      animation-name: sandwich;
+
+      &::before {
+        animation-name: sandwich-before;
+      }
+
+      &::after {
+        animation-name: sandwich-after;
+      }
+    }
+  }
+}
+
+.header__navigation {
+  @include for_mobile {
+    align-self: stretch;
+  }
 }

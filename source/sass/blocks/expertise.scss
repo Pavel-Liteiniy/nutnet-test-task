@@ -8,6 +8,10 @@
 }
 
 .expertise__wrapper {
+  @include for_mobile {
+    padding: 50px 0 0;
+  }
+
   padding: 65px 3px 66px;
 }
 
@@ -24,6 +28,10 @@
 }
 
 .expertise__description {
+  @include for_mobile {
+    margin: 0 20px 20px;
+  }
+
   position: relative;
 
   padding: 0 0 17px;
@@ -53,6 +61,10 @@
 }
 
 .expertise__list {
+  @include for_mobile {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   display: grid;
   overflow: hidden;
 
@@ -68,6 +80,10 @@
 }
 
 .expertise__item {
+  @include for_mobile {
+    padding: 90px 25px 20px;
+  }
+
   position: relative;
 
   padding: 120px 25px 20px;
@@ -79,10 +95,18 @@
   border-bottom: $border_grid;
 
   &:not(:nth-child(3n)) {
+    @include for_mobile {
+      border-right: none;
+    }
+
     border-right: $border_grid;
   }
 
   &::before {
+    @include for_mobile {
+      top: 20px;
+    }
+
     position: absolute;
     top: 40px;
     left: 50%;
@@ -129,6 +153,12 @@
   }
 
   h3 {
+    @include for_mobile {
+      max-width: 400px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     padding: 0 0;
     margin: 0 0 13px;
 
@@ -139,6 +169,12 @@
   }
 
   p {
+    @include for_mobile {
+      max-width: 400px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     font-weight: $weight_light;
 
     color: $carbon;

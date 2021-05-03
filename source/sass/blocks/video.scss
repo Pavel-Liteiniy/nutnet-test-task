@@ -3,6 +3,10 @@
     background-image: $gradient_background, url("../img/background-city@2x.jpg");
   }
 
+  @include for_mobile {
+    min-height: 300px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;

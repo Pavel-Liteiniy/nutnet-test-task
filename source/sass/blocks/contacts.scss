@@ -32,6 +32,10 @@
       }
     }
 
+    @include for_mobile {
+      display: inline-block;
+    }
+
     position: relative;
 
     display: block;
