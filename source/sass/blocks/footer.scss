@@ -44,6 +44,18 @@
   grid-column: 1 / span 2;
 
   a {
+    @include only_desktop {
+      &:hover,
+      &:focus {
+        color: $blue;
+        opacity: $hover_opacity;
+      }
+
+      &:active {
+        opacity: $active_opacity;
+      }
+    }
+
     font-size: $small_font_size;
     font-weight: $weight_regular;
     line-height: $extra_line_height;

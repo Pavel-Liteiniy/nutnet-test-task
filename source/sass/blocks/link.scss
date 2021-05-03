@@ -1,4 +1,15 @@
 .link {
+  @include only_desktop {
+    &:hover,
+    &:focus {
+      opacity: $hover_opacity;
+    }
+
+    &:active {
+      opacity: $active_opacity;
+    }
+  }
+
   display: block;
 
   padding: 7px 14px;

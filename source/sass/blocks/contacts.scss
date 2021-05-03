@@ -21,6 +21,17 @@
   }
 
   a {
+    @include only_desktop {
+      &:hover,
+      &:focus {
+        opacity: $hover_opacity;
+      }
+
+      &:active {
+        opacity: $active_opacity;
+      }
+    }
+
     position: relative;
 
     display: block;

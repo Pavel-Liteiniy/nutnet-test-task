@@ -6,19 +6,34 @@
 }
 
 .navigation__list {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 5px 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+
+  padding: 0 0 5px 50px;
+  margin: 0;
+
+  list-style: none;
 }
 
 .navigation__item {
   a {
+    @include only_desktop {
+      &[href]:hover,
+      &[href]:focus {
+        color: $blue;
+        opacity: $hover_opacity;
+      }
+
+      &[href]:active {
+        opacity: $active_opacity;
+      }
+    }
+
     display: block;
+
     margin: 5px 0 5px 27px;
 
     text-decoration: none;

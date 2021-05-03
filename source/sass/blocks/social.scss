@@ -38,6 +38,16 @@
   letter-spacing: 0.7px;
 
   .social__input {
+    @include only_desktop {
+      &:hover {
+        opacity: $hover_opacity;
+
+        + .social__label {
+          opacity: $hover_opacity;
+        }
+      }
+    }
+
     flex-grow: 1;
     padding: 10px 16px 7px;
     margin-right: 10px;
@@ -65,6 +75,17 @@
   }
 
   .social__button {
+    @include only_desktop {
+      &:hover,
+      &:focus {
+        opacity: $hover_opacity;
+      }
+
+      &:active {
+        opacity: $active_opacity;
+      }
+    }
+
     position: relative;
 
     display: block;
@@ -132,6 +153,17 @@
 }
 
 .social__item {
+  @include only_desktop {
+    &:hover,
+    &:focus {
+      opacity: $hover_opacity;
+    }
+
+    &:active {
+      opacity: $active_opacity;
+    }
+  }
+
   margin-bottom: 8px;
 
   &--facebook a::before {

@@ -18,6 +18,8 @@
 }
 
 .review__text {
+  position: relative;
+
   padding: 72px 75px 43px;
   margin: 0;
 
@@ -28,18 +30,17 @@
   letter-spacing: 0.5px;
   text-align: center;
 
-  position: relative;
-
   &::before {
     position: absolute;
-    content: "“";
     top: 30px;
     left: 50%;
 
-    transform: translateX(-50%);
-
     font-size: 100px;
     line-height: 22px;
+
+    content: "“";
+
+    transform: translateX(-50%);
   }
 }
 
@@ -82,13 +83,40 @@
 }
 
 .review__item {
-  border-radius: 50%;
+  @include only_desktop {
+    &:not(.review__item--selected) {
+      a:hover,
+      a:focus {
+        transform: scale(1.3);
+      }
+
+      a:active {
+        opacity: $active_opacity;
+      }
+    }
+  }
 
   margin: 7px;
 
+  border-radius: 50%;
+
+  transition-duration: 300ms;
+
   &--selected {
-    margin-left: 19px;
     margin-right: 19px;
-    transform: scale(1.56);
+    margin-left: 19px;
+
+    a {
+      transform: scale(1.56);
+    }
+  }
+
+  a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    transition-duration: 300ms;
   }
 }
