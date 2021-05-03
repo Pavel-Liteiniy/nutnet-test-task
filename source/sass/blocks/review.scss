@@ -18,6 +18,10 @@
 }
 
 .review__text {
+  @include for_mobile {
+    padding: 50px 0 20px;
+  }
+
   position: relative;
 
   padding: 72px 75px 43px;
