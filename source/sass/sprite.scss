@@ -480,8 +480,7 @@ $retina-groups: ($icon-dribbble-1x-group, $icon-expertise-1-1x-group, $icon-expe
   $retina-sprite: nth($retina-group, 3);
   @include sprite($normal-sprite);
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi) {
+  @media (min-resolution: $retina_dppx), (min-resolution: $retina_dpi) {
     @include sprite-image($retina-sprite);
     @include sprite-background-size($normal-sprite);
   }
