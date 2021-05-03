@@ -1,4 +1,4 @@
-export const EMAIL_REG_EXP = /^(?:[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+(?:\.[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+)*)@(?:[-a-z\d_]+\.){1,60}[a-z]{2,6}$/;
+export const EMAIL_REG_EXP = /^(?:[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+(?:\.[-a-z\d\+\*\/\?!{}`~_%&`=^$#]+)*)@(?:[-a-z\d_]+\.){1,60}[a-z]{2,6}$/i;
 export const SuccessHTTPStatusRange = {
   MIN: 200,
   MAX: 299
